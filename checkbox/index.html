@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<style>
+	.content {
+		display: flex;
+		flex-flow: column;
+	}
+</style>
+
+<body>
+	<div class="content">
+		<label>
+			<input type="checkbox" id="parent">全て選択
+		</label>
+		<label>
+			<input type="checkbox" class="child">A
+		</label>
+		<label>
+			<input type="checkbox" class="child">B
+		</label>
+	</div>
+
+	<!-- 全選択チェックボックス -->
+	<script src="./checkbox.js"></script>
+
+	<script type="text/javascript">
+		/************ 送信先 生徒個別選択 *********************/
+		/* チェックボックスを取得、インスタンス生成 */
+		var parent = document.querySelector('#parent');
+		var child = document.querySelectorAll('.child');
+		var studentCheckbox = new Checkbox(parent, child)
+
+		/* 全選択のチェックボックスをクリックした時のイベントを設定 */
+		studentCheckbox.addEvtOnClickParent()
+		/* 子チェックボックスをクリックした時のイベントを設定 */
+		studentCheckbox.addEvtOnClickChild()
+	</script>
+</body>
+
+</html>
